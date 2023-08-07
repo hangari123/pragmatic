@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+from django.contrib.messages import constants as messages
 
 from django.urls import reverse_lazy
 
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     "commentapp",
     "projectapp",
     "subscribeapp",
+    "likeapp",
 ]
 
 MIDDLEWARE = [
@@ -115,3 +117,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 MEDIA_URL = "media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
